@@ -1,0 +1,31 @@
+{
+    "manifest_version": 2,
+
+    "name": "icEngin profiler",
+    "version": "1.0",
+
+    "icons": {
+        "16" : "16.png",
+        "32" : "32.png",
+        "48" : "48.png",
+        "128" : "128.png"
+    },
+
+    "permissions": [
+        "activeTab"
+    ],
+    
+    "content_scripts": [
+        {
+            "matches":["<all_urls>"],
+            "js":["content.js"],
+            "css":["content.css"]
+        }
+    ],
+
+    "browser_action": {
+        "default_title": "icEngibne profiler",
+        "default_popup": "index.html",
+        "default_icon": "48.png"
+    }
+}

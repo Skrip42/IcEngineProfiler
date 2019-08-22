@@ -1,0 +1,42 @@
+* {
+    font-size: 14px;
+    color: rgba(0,0,0,.87);
+    font-feature-settings: "kern","liga";
+    margin: 0px;
+}
+body {
+    font-family: "Roboto","Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+.clearfix::after {
+    content:"";
+    display: table;
+    clear: both;
+}
+
+#title {
+    background-color: #a72020;
+    font-size: 18px;
+    color: white;
+    padding: 5px 120px;
+    white-space: nowrap;
+    box-shadow: 0px 0px 8px 2px rgba(0,0,0,0.75);
+}
+#controllerListContainer {
+    padding: 10px 0px;
+}
+.controllerList {
+    padding: 0px 0px 0px 10px;
+}
+.elementContent {
+    padding: 2px 0px;
+}
+.elementContent:hover {
+    background-color: #e4e4e4;
+}
+.controllerElementTime {
+    color:gray;
+    font-size: 10px;
+}
+.controllerElementTime.alert {
+    color:red;
+}

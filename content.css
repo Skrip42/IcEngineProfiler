@@ -1,0 +1,45 @@
+.profile-border {
+    outline-color: yellow !important;
+    outline-width: 1px !important;
+    outline-style: solid !important;
+    outline-offset: 1px !important;
+}
+.profile-border.profile-hover {
+    outline-color: #a72020 !important;
+}
+.profile-border:hover {
+    outline-color: #a72020 !important;
+}
+.profile-data-label {
+    position: absolute !important;
+    background-color: #a72020 !important;
+    color: white !important;
+    font-size: 10px !important;
+    display: none !important;
+    z-index: 490 !important;
+    min-height: 35px !important;
+    box-shadow: 0px 0px 8px 2px rgba(0,0,0,0.75) !important;
+}
+.profile-data-label>p {
+    margin: 0px !important;
+    white-space: nowrap !important;
+    padding: 2px 5px !important;
+    color: white !important;
+    line-height: 12px;
+}
+.profile-container:hover>.profile-data-label {
+    display: block !important;
+}
+.profile-container.profile-hover>.profile-data-label {
+    display: block !important;
+}
+.profile-point {
+    width: 20px !important;
+    height: 20px !important;
+    background-color: rgba(200, 0, 0, 0.5) !important;
+    position: absolute !important;
+    z-index: 500 !important;
+    margin-top: -10px !important;
+    margin-left: -10px !important;
+    border-radius: 10px !important;
+}
