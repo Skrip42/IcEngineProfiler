@@ -1,22 +1,24 @@
 document.addEventListener('DOMContentLoaded', function () {
-        chrome.tabs.query(
-            {
-                active: true,
-                currentWindow: true
-            },
-            function (tabs) {
-                chrome.tabs.sendMessage(tabs[0].id, {type: 'init'}, function (response) {
-                    var controllerList = document.getElementById('controllerListContainer');
-                    controllerList.innerHTML = '';
-                    controllerList.appendChild(drowControllerList(response));
-                })
-            }
-        );
+    chrome.tabs.query(  //инициализируем профайлер
+        {
+            active: true,
+            currentWindow: true
+        },
+        function (tabs) {
+            chrome.tabs.sendMessage(tabs[0].id, {type: 'init'}, function (response) {
+                console.log(response);
+                var controllerList = document.getElementById('controllerListContainer');
+                controllerList.innerHTML = '';
+                controllerList.appendChild(drowControllerList(response));
+                return true;
+            })
+        }
+    );
     eventInit();
     }
 );
 
-function eventInit() {
+function eventInit() { //ховер/блюр
     document.getElementById('controllerListContainer').addEventListener(
         'mouseover', 
         function (event) {
@@ -50,9 +52,9 @@ function hoverController(id) {
             chrome.tabs.sendMessage(
                 tabs[0].id, 
                 {type: 'hover', controllerId: id}, 
-                function (response) {
-                }
+                function (response) { }
             )
+            return true;
         }
     );
 }
@@ -67,14 +69,14 @@ function blurController(id) {
             chrome.tabs.sendMessage(
                 tabs[0].id, 
                 {type: 'blur', controllerId: id}, 
-                function (response) {
-                }
+                function (response) { }
             )
+            return true;
         }
     );
 }
 
-function drowControllerList(controllerList) {
+function drowControllerList(controllerList) {   //отрисовываем список контролеров
     var container = document.createElement('div');
     container.classList.add('controllerList');
     for (var i = 0; i < controllerList.length; i++) {
@@ -83,7 +85,7 @@ function drowControllerList(controllerList) {
     return container;
 }
 
-function drowController(controller) {
+function drowController(controller) { //отрисовываем контроллер
     var controllerElement = document.createElement('div');
     controllerElement.id = controller.id;
     controllerElement.classList.add('controllerElement');
